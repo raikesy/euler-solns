@@ -3,7 +3,7 @@ def sum_of_sq(upper):
 
 
 def sq_of_sum(upper):
-    return sum(range(upper+1))**2
+    return sum(range(upper+1)) ** 2
 
 
 def main():
