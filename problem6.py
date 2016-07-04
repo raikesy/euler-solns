@@ -1,5 +1,5 @@
 def sum_of_sq(upper):
-    return sum(map(lambda x: x**2, range(upper+1)))
+    return sum(map(lambda x: x ** 2, range(upper+1)))
 
 
 def sq_of_sum(upper):
