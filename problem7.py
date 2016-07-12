@@ -5,18 +5,19 @@
 # efficiently check for primes.
 # Divide by 2, 3, NOT 4, 5, NOT 6, 7 etc
 
-def is_prime(test_value):
-    '''v1, pure brute force: too slow'''
-    if test_value == 1: return False
-    for i in range(2,test_value):
-        if not test_value % i:
+def is_prime(n):
+    '''v2, only test odd numbers up to root(n) inclusive'''
+    divisors = [2]
+    divisors.extend(list(range(3, int(n ** 0.5) + 1, 2)))
+    for i in divisors:
+        if not n % i:
             return False
     return True
 
 
 def main():
     '''v1, tests all numbers for primality'''
-    prime_no = 1000
+    prime_no = 10001
     prime_count = 0
     test_number = 0
     while prime_count < prime_no:
