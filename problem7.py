@@ -5,19 +5,22 @@
 # efficiently check for primes.
 # Divide by 2, 3, NOT 4, 5, NOT 6, 7 etc
 
-def is_prime(n):
-    '''v2, only test odd numbers up to root(n) inclusive'''
-    divisors = [2]
-    divisors.extend(list(range(3, int(n ** 0.5) + 1, 2)))
-    for i in divisors:
-        if not n % i:
-            return False
+def is_prime(test_num):
+    '''Test a number for primality.
+    
+    v3, test divisible by 2 or 3 then 6k+/-1'''
+    if test_num == 1: return False
+    if test_num in (2, 3): return True
+    if not (test_num % 2 and test_num % 3):
+        return False
     return True
 
 
-def main():
-    '''v1, tests all numbers for primality'''
-    prime_no = 10001
+def prime_generator(n):
+    '''Generate the nth prime number
+    
+    v1, tests all numbers for primality'''
+    prime_no = n
     prime_count = 0
     test_number = 0
     while prime_count < prime_no:
@@ -25,6 +28,10 @@ def main():
         if is_prime(test_number):
             prime_count += 1
     print(test_number)
+
+def main():
+    prime_generator(1)
+    prime_generator(10001)
 
 if __name__ == "__main__":
     main()
