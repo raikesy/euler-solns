@@ -6,7 +6,7 @@ v2, use a basic sieve of Eratosthenes'''
 def sieve(upper):
     '''Return every prime below a given value'''
     prime_list = []
-    int_list = list(range(2,upper))
+    int_list = list(range(2, upper))
     while int_list:
         prime_list.append(int_list[0])
         int_list = [x for x in int_list if x % prime_list[-1]]
